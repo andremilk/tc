@@ -45,5 +45,15 @@ public class Alphabet<Symbol> extends ConcurrentSkipListSet<Symbol> {
 	public void setAlias(String alias) {
 		this.alias = alias;
 	}
+
+	@Override
+	public String toString() {
+		String tmp = new String();
+		tmp += "Alphabet [alias=" + alias + "]\n Contents:\n";
+		for(Symbol s: this)
+			tmp += "\t" + s.toString() + "\n";
+		
+		return tmp;
+	}
 	
 }
