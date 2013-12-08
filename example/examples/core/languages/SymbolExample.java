@@ -6,8 +6,8 @@ public class SymbolExample {
 
 
 	public static void main(String[] args) {
-		Symbol intSymbol = new Symbol(new Integer(15));
-		Symbol strSymbol = new Symbol(new String("This is a test"));
+		Symbol<Integer> intSymbol = new Symbol<Integer>(new Integer(15));
+		Symbol<String> strSymbol = new Symbol<String>(new String("This is a test"));
 		System.out.println(intSymbol);
 		System.out.println(strSymbol);
 
