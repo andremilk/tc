@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentSkipListSet;
  *
  * @param <T> Type of the symbols to be held.
  */
-public class Alphabet<T> extends ConcurrentSkipListSet<T> {
+public class Alphabet<Symbol> extends ConcurrentSkipListSet<Symbol> {
 
 	/**
 	 * 
