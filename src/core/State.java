@@ -61,16 +61,38 @@ public class State implements Comparable {
 		this.setReactions(new ConcurrentSkipListMap<Symbol, ConcurrentSkipListSet <State>>());
 	}
 	
+	/**
+	 * Adds one Symbol to the reaction map.
+	 * @param symbol Symbol to be added.
+	 * @param state State to which the symbol will lead.
+	 */
 	public void addReaction(Symbol symbol, State state) {
 		ConcurrentSkipListSet<State> s = new ConcurrentSkipListSet<State>();
 		s.add(state);
 		this.getReactions().put(symbol, s);
 	}
 
+	/**
+	 * Adds Symbol to the reaction map.
+	 * @param symbol Symbol to be added.
+	 * @param state States to which the symbol will lead.
+	 */
 	public void addReactions(Symbol symbol, State[] states) {
 		ConcurrentSkipListSet<State> s = new ConcurrentSkipListSet<State>();
 		Collections.addAll(s, states);
 		this.getReactions().put(symbol, s);
+	}
+	
+	/**
+	 * Adds many Symbols to point to a state.
+	 * @param symbol Symbols that will point to that state.
+	 * @param state State to which the symbols will lead.
+	 */
+	public void addReactions(Symbol[] symbol, State state) {
+		ConcurrentSkipListSet<State> s = new ConcurrentSkipListSet<State>();
+		s.add(state);
+		for(Symbol tmpSymbol: symbol)
+			this.getReactions().put(tmpSymbol, s);
 	}
 	
 	public ConcurrentSkipListMap<Symbol, ConcurrentSkipListSet<State>> getReactions() {
@@ -100,9 +122,9 @@ public class State implements Comparable {
 	@Override
 	public String toString() {
 		String tmp = new String();
-		tmp += "State [label=" + label + ", type=" + type + "]\n Reaction function:\n";
+		tmp += "\t" +  label + ", type=" + type + "\n\t\tReaction function:\n";
 		for(Symbol s: this.getReactions().keySet()) {
-			tmp += "\t" + s.getValue() + " { ";
+			tmp += "\t\t\t" + s.getValue() + " { ";
 			for(State state: this.getReactions().get(s)) {
 				if(state != this.getReactions().get(s).last())
 					tmp +=  state.getLabel() + ", ";
@@ -114,6 +136,10 @@ public class State implements Comparable {
 		return tmp;
 	}
 
+
+	/**
+	 * Compares the states based on it's labels names.
+	 */
 	@Override
 	public int compareTo(Object o) {
 		State tmp = (State) o;
