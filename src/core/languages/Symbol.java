@@ -54,7 +54,7 @@ public class Symbol<T> implements Comparable<T> {
 
 	@Override
 	public int compareTo(Object arg0) {
-		Symbol tmp = (Symbol) arg0;
+		Symbol<?> tmp = (Symbol<?>) arg0;
 		return this.getValue().compareTo(tmp.getValue());
 	}
 
