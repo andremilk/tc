@@ -1,0 +1,6 @@
+core
+core.languages
+examples.core
+examples.core.languages
+examples.finiteAutomata.dfa
+finiteAutomata.dfa
