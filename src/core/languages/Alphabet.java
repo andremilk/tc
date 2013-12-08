@@ -49,7 +49,7 @@ public class Alphabet<Symbol> extends ConcurrentSkipListSet<Symbol> {
 	@Override
 	public String toString() {
 		String tmp = new String();
-		tmp += "Alphabet [alias=" + alias + "]\n Contents:\n";
+		tmp += alias + "\n Contents:\n";
 		for(Symbol s: this)
 			tmp += "\t" + s.toString() + "\n";
 		
