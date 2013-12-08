@@ -10,7 +10,6 @@ public class SymbolExample {
 		Symbol<String> strSymbol = new Symbol<String>(new String("This is a test"));
 		System.out.println(intSymbol);
 		System.out.println(strSymbol);
-
 	}
 
 }
