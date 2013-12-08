@@ -69,6 +69,8 @@ public class State implements Comparable {
 	public void addReaction(Symbol symbol, State state) {
 		ConcurrentSkipListSet<State> s = new ConcurrentSkipListSet<State>();
 		s.add(state);
+		if(this.getReactions().containsKey(symbol))
+			s.addAll(this.getReactions().get(symbol));
 		this.getReactions().put(symbol, s);
 	}
 
@@ -80,6 +82,8 @@ public class State implements Comparable {
 	public void addReactions(Symbol symbol, State[] states) {
 		ConcurrentSkipListSet<State> s = new ConcurrentSkipListSet<State>();
 		Collections.addAll(s, states);
+		if(this.getReactions().containsKey(symbol))
+			s.addAll(this.getReactions().get(symbol));
 		this.getReactions().put(symbol, s);
 	}
 	
@@ -91,6 +95,8 @@ public class State implements Comparable {
 	public void addReactions(Symbol[] symbol, State state) {
 		ConcurrentSkipListSet<State> s = new ConcurrentSkipListSet<State>();
 		s.add(state);
+		if(this.getReactions().containsKey(symbol))
+			s.addAll(this.getReactions().get(symbol));
 		for(Symbol tmpSymbol: symbol)
 			this.getReactions().put(tmpSymbol, s);
 	}
