@@ -6,9 +6,9 @@ import core.State;
 import core.State.StateType;
 import core.languages.Alphabet;
 import core.languages.Symbol;
-import finiteAutomata.dfa.DfaController;
+import finiteAutomata.dfa.Dfa;
 
-public class DfaControllerExample {
+public class DfaExample {
 
 	public static void main(String[] args) {
 		ConcurrentSkipListSet<State> states = new ConcurrentSkipListSet<State>();
@@ -33,7 +33,7 @@ public class DfaControllerExample {
 		states.add(initialState);
 		
 		try {
-			DfaController m1 = new DfaController("M1", states, alphabet, initialState, finalStates);
+			Dfa m1 = new Dfa("M1", states, alphabet, initialState, finalStates);
 			System.out.println(m1);
 
 		} catch (Exception e) {

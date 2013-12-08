@@ -10,7 +10,7 @@ import core.languages.Alphabet;
  * @author andreluiz
  *
  */
-public class DfaController {
+public class Dfa {
 	
 	/**
 	 * States that this automaton.
@@ -46,7 +46,7 @@ public class DfaController {
 	 * @param finalStates Final states. These states should be included on the states set as well.
 	 * @throws Exception Thrown if initialState or the finalStates are not included on the states set.
 	 */
-	public DfaController(String alias, ConcurrentSkipListSet<State> states, Alphabet alphabet, 
+	public Dfa(String alias, ConcurrentSkipListSet<State> states, Alphabet alphabet, 
 			State initialState, ConcurrentSkipListSet<State> finalStates) throws Exception {
 		this.alias = alias;
 		this.states = states;
