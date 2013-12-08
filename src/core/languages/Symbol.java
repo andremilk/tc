@@ -6,7 +6,7 @@ package core.languages;
  *
  * @param <T> A Symbol can be any kind of object.
  */
-public class Symbol<T> {
+public class Symbol<T> implements Comparable<T> {
 
 	/**
 	 * This attribute will hold the object type of the symbol.
@@ -50,6 +50,12 @@ public class Symbol<T> {
 	@Override
 	public String toString() {
 		return "Symbol [type=" + type + ", value=" + value + "]";
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+		Symbol tmp = (Symbol) arg0;
+		return this.getValue().compareTo(tmp.getValue());
 	}
 
 }
