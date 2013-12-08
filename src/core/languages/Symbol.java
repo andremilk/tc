@@ -47,4 +47,9 @@ public class Symbol<T> {
 		this.value = value;
 	}
 
+	@Override
+	public String toString() {
+		return "Symbol [type=" + type + ", value=" + value + "]";
+	}
+
 }
