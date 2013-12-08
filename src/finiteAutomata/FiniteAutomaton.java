@@ -1,4 +1,4 @@
-package finiteAutomata.dfa;
+package finiteAutomata;
 
 import java.util.concurrent.ConcurrentSkipListSet;
 
@@ -10,7 +10,7 @@ import core.languages.Alphabet;
  * @author andreluiz
  *
  */
-public class Dfa {
+public class FiniteAutomaton {
 	
 	/**
 	 * States that this automaton.
@@ -46,7 +46,7 @@ public class Dfa {
 	 * @param finalStates Final states. These states should be included on the states set as well.
 	 * @throws Exception Thrown if initialState or the finalStates are not included on the states set.
 	 */
-	public Dfa(String alias, ConcurrentSkipListSet<State> states, Alphabet alphabet, 
+	public FiniteAutomaton(String alias, ConcurrentSkipListSet<State> states, Alphabet alphabet, 
 			State initialState, ConcurrentSkipListSet<State> finalStates) throws Exception {
 		this.alias = alias;
 		this.states = states;

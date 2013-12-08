@@ -1,9 +1,10 @@
-package finiteAutomata.dfa;
+package finiteAutomata.controllers;
 
 import java.util.concurrent.ConcurrentSkipListSet;
 
 import core.State;
 import core.languages.Symbol;
+import finiteAutomata.FiniteAutomaton;
 
 /**
  * Class that will control the automaton.
@@ -25,13 +26,13 @@ public class DfaController {
 	/**
 	 * Automaton to be controlled.
 	 */
-	private Dfa dfa;
+	private FiniteAutomaton dfa;
 	
 	/**
 	 * Constructor of a DfaController.
 	 * @param dfa Automaton to be controlled.
 	 */
-	public DfaController(Dfa dfa) {
+	public DfaController(FiniteAutomaton dfa) {
 		this.dfa = dfa;
 		currentState = dfa.getInitialState();
 	}
@@ -41,7 +42,7 @@ public class DfaController {
 	 * @param dfa Automaton to be controlled.
 	 * @param input Input to be read consisted of an array of Symbols.
 	 */
-	public DfaController(Dfa dfa, Symbol<?>[] input) {
+	public DfaController(FiniteAutomaton dfa, Symbol<?>[] input) {
 		this.dfa = dfa;
 		this.input = input;
 		currentState = dfa.getInitialState();
@@ -53,7 +54,7 @@ public class DfaController {
 	 * @param dfa Automaton
 	 * @param input String input to be read. The string will be converted to an array of Symbols.
 	 */
-	public DfaController(Dfa dfa, String input) {
+	public DfaController(FiniteAutomaton dfa, String input) {
 		this.dfa = dfa;
 		this.input = new Symbol[input.length()];
 		for(int i = 0; i < input.length(); i++)
@@ -108,11 +109,11 @@ public class DfaController {
 		this.setInput(symbol);
 	}
 
-	public Dfa getDfa() {
+	public FiniteAutomaton getDfa() {
 		return dfa;
 	}
 
-	public void setDfa(Dfa dfa) {
+	public void setDfa(FiniteAutomaton dfa) {
 		this.dfa = dfa;
 	}
 	
