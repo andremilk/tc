@@ -7,6 +7,7 @@ import core.State.StateType;
 import core.languages.Alphabet;
 import core.languages.Symbol;
 import finiteAutomata.dfa.Dfa;
+import finiteAutomata.dfa.DfaController;
 
 public class DfaExample {
 
@@ -35,6 +36,11 @@ public class DfaExample {
 		try {
 			Dfa m1 = new Dfa("M1", states, alphabet, initialState, finalStates);
 			System.out.println(m1);
+
+			DfaController m1c = new DfaController(m1, "a");
+			m1c.readInput();
+			m1c.readInput("b");
+			System.out.println(m1c.getCurrentState());
 
 		} catch (Exception e) {
 			e.printStackTrace();
